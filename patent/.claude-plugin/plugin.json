@@ -1,0 +1,85 @@
+{
+  "name": "patent-assistant",
+  "displayName": "Patent Assistant",
+  "version": "1.0.0",
+  "description": "Japanese patent law knowledge repository and invention creation workflow",
+  "commands": [
+    {
+      "name": "run",
+      "path": "../commands/run.md"
+    }
+  ],
+  "agents": [
+    {
+      "name": "patent_input",
+      "path": "../agents/patent_input.md"
+    },
+    {
+      "name": "patent_secretary",
+      "path": "../agents/patent_secretary.md"
+    },
+    {
+      "name": "patent_searcher",
+      "path": "../agents/patent_searcher.md"
+    },
+    {
+      "name": "patent_analyzer",
+      "path": "../agents/patent_analyzer.md"
+    },
+    {
+      "name": "patent_adviser",
+      "path": "../agents/patent_adviser.md"
+    },
+    {
+      "name": "patent_document",
+      "path": "../agents/patent_document.md"
+    },
+    {
+      "name": "patent_auditor",
+      "path": "../agents/patent_auditor.md"
+    }
+  ],
+  "skills": "../skills/",
+  "mcpServers": {
+    "sequential-thinking": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-sequential-thinking"],
+      "description": "Reasoning framework for complex problem-solving"
+    },
+    "patent_mcp_server": {
+      "command": "${CLAUDE_PLUGIN_ROOT}/scripts/start-patent-mcp.sh",
+      "env": {
+        "USPTO_API_KEY": "${USPTO_API_KEY}"
+      },
+      "description": "Patent database exploration (USPTO, Google Patents)"
+    }
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/scripts/setup.sh"
+          }
+        ]
+      }
+    ]
+  },
+  "author": {
+    "name": "namtoki",
+    "url": "https://github.com/namtoki"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/namtoki/claude-code-marketplace"
+  },
+  "keywords": [
+    "patent",
+    "japanese-law",
+    "invention",
+    "ip",
+    "claude-code"
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "name": "namtoki-plugins",
+  "owner": {
+    "name": "namtoki",
+    "email": "namtoki@users.noreply.github.com"
+  },
+  "metadata": {
+    "description": "Personal Claude Code plugin marketplace",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "patent-assistant",
+      "source": "./patent",
+      "description": "Japanese patent law knowledge repository and invention creation workflow",
+      "version": "1.0.0",
+      "author": {
+        "name": "namtoki"
+      },
+      "keywords": ["patent", "japanese-law", "invention", "ip"],
+      "license": "MIT"
+    }
+  ]
+}
