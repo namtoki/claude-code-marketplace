@@ -1,10 +1,10 @@
 # Claude Code Plugin Marketplace
 
-個人用の Claude Code Plugin Marketplace です。
+Personal Claude Code Plugin Marketplace.
 
-## Marketplace の登録
+## Marketplace Registration
 
-プロジェクトごとに使用する場合は `.claude/settings.json` に、グローバルに使用する場合は `~/.claude/settings.json` に以下を追加:
+Add the following to `.claude/settings.json` (project-level) or `~/.claude/settings.json` (global):
 
 ```json
 {
@@ -21,88 +21,88 @@
 
 ---
 
-## プラグイン一覧
+## Plugins
 
 ### Patent Assistant
 
-日本特許法に基づく発明作成を支援するプラグインです。
+A plugin for Japanese patent law-based invention creation support.
 
-#### 前提条件
+#### Prerequisites
 
-- **uv** (Python パッケージマネージャー)
+- **uv** (Python package manager)
 
 ```bash
 curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
 
-- **USPTO_API_KEY** 環境変数
+- **USPTO_API_KEY** environment variable
 
 ```bash
 export USPTO_API_KEY=your_api_key_here
 ```
 
-#### インストール
+#### Installation
 
-Claude Code を起動し、以下のコマンドを実行:
+Launch Claude Code and run:
 
 ```
 /plugin install patent-assistant@namtoki-plugins
 ```
 
-> **注意**: プラグインの自動インストール機能は現在ありません。Marketplace を登録しても、プラグインは手動でインストールする必要があります。
+> **Note**: There is no automatic plugin installation. Even after registering the Marketplace, you must manually install plugins.
 
-プラグインをインストールすると、以下の MCP サーバーが自動的にセットアップされます:
+After installation, the following MCP servers are automatically set up:
 
-| サーバー | 用途 | セットアップ |
-|----------|------|-------------|
-| sequential-thinking | 推論フレームワーク | 自動（npx） |
-| patent_mcp_server | 特許データベース探索 | 自動（git clone + uv sync） |
+| Server | Purpose | Setup |
+|--------|---------|-------|
+| sequential-thinking | Reasoning framework | Auto (npx) |
+| patent_mcp_server | Patent database search | Auto (git clone + uv sync) |
 
-#### 使い方
-
-```
-/patent-assistant:run <課題または課題と改善手法提案>
-```
-
-#### 例
+#### Usage
 
 ```
-/patent-assistant:run Bluetoothイヤホンの接続が不安定な問題を解決するための信号処理手法
+/patent-assistant:run <problem or problem with proposed solution>
 ```
 
-#### エージェント構成
-
-| エージェント | 役割 |
-|-------------|------|
-| patent_input | 入力分析・キーワード抽出 |
-| patent_secretary | 議事録管理 |
-| patent_searcher | 特許データベース探索 |
-| patent_analyzer | 構成要素分析・新規性判断 |
-| patent_adviser | 改善提案・ユーザ対話 |
-| patent_document | 出願書類作成 |
-| patent_auditor | 最終監査 |
-
-#### 処理フロー
+#### Example
 
 ```
-ユーザ入力
+/patent-assistant:run Signal processing method to solve unstable Bluetooth earphone connection issues
+```
+
+#### Agent Configuration
+
+| Agent | Role |
+|-------|------|
+| patent_input | Input analysis & keyword extraction |
+| patent_secretary | Meeting notes management |
+| patent_searcher | Patent database search |
+| patent_analyzer | Component analysis & novelty assessment |
+| patent_adviser | Improvement suggestions & user dialogue |
+| patent_document | Application document drafting |
+| patent_auditor | Final audit |
+
+#### Workflow
+
+```
+User Input
     ↓
-patent_input（入力分析）
+patent_input (Input Analysis)
     ↓
-patent_searcher（特許探索）
+patent_searcher (Patent Search)
     ↓
-patent_analyzer（分析・新規性判断）
+patent_analyzer (Analysis & Novelty Assessment)
     ↓
-┌─ 新規性あり → patent_document → patent_auditor → 完了
-└─ 新規性なし → patent_adviser → patent_input（ループ）
+├─ Novelty exists → patent_document → patent_auditor → Complete
+└─ No novelty → patent_adviser → patent_input (Loop)
 ```
 
 ---
 
-## ライセンス
+## License
 
 MIT License
 
-## 作者
+## Author
 
 [@namtoki](https://github.com/namtoki)
