@@ -3,7 +3,15 @@
   "version": "1.0.0",
   "description": "Japanese patent law knowledge repository and invention creation workflow",
   "commands": "./commands/",
-  "agents": "./agents/",
+  "agents": [
+    "./agents/patent_input.md",
+    "./agents/patent_secretary.md",
+    "./agents/patent_searcher.md",
+    "./agents/patent_analyzer.md",
+    "./agents/patent_adviser.md",
+    "./agents/patent_document.md",
+    "./agents/patent_auditor.md"
+  ],
   "skills": "./skills/",
   "mcpServers": {
     "sequential-thinking": {
