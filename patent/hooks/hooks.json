@@ -1,0 +1,15 @@
+{
+  "description": "Patent assistant plugin hooks - auto-setup MCP server on session start",
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/scripts/setup.sh"
+          }
+        ]
+      }
+    ]
+  }
+}
