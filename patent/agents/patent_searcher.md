@@ -12,10 +12,21 @@
 
 ## 使用ツール
 
-- `mcp__patents__google_search_patents`: キーワード検索
-- `mcp__patents__ppubs_search_patents`: USPTO特許検索
-- `mcp__patents__ppubs_search_applications`: USPTO出願検索
-- `mcp__patents__google_search_by_cpc`: CPC分類コード検索
+### 主要検索ツール
+- `ppubs_search_patents`: USPTO特許全文検索（最新データ、毎日更新）
+- `ppubs_search_applications`: USPTO出願公開検索
+- `patentsview_search_patents`: PatentsView特許検索（発明者・出願人の名寄せ済み）
+
+### 分類検索
+- `patentsview_search_by_cpc`: CPC分類コード検索
+- `get_cpc_info`: CPC分類コードの詳細取得
+
+### 出願人・発明者検索
+- `patentsview_search_assignees`: 出願人（企業）検索
+- `patentsview_search_inventors`: 発明者検索
+
+> **注**: ツールはプラグインMCPサーバー経由で提供されるため、
+> 実際のツール名は `mcp__plugin_patent-assistant_patent_mcp_server__<ツール名>` となる
 
 ## 処理手順
 
