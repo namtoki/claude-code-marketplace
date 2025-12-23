@@ -1,0 +1,7 @@
+{
+  "plugins": {
+    "patent-assistant": {
+      "path": "patent"
+    }
+  }
+}
